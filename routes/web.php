@@ -12,7 +12,10 @@ Route::get('/', function () {
 Route::middleware('guest')->group(function() {
     Route::get('/login', [AuthController::class, 'show'])->name('login');
     Route::post('/login', [AuthController::class, 'store'])->name('login.store');
-    Route::post('/logout', [AuthController::class. 'destroy'])->name('logout');
+});
+
+Route::middleware('auth')->group(function() {
+    Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 });
 
 Route::middleware(['auth', 'permission:dashboard.view'])->group(function () {

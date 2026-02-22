@@ -29,8 +29,13 @@
                                 <i class="ti ti-user fs-6"></i>
                                 <p class="mb-0 fs-3">My Profile</p>
                             </a>
-                            <a href="{{ route('logout') }}"
-                                class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item d-flex align-items-center gap-2">
+                                    <i class="ti ti-logout fs-6"></i>
+                                    <span>Logout</span>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </li>
